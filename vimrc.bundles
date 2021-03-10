@@ -1,0 +1,56 @@
+if &compatible
+  set nocompatible
+end
+
+" Remove declared plugins
+function! s:UnPlug(plug_name)
+  if has_key(g:plugs, a:plug_name)
+    call remove(g:plugs, a:plug_name)
+  endif
+endfunction
+command!  -nargs=1 UnPlug call s:UnPlug(<args>)
+
+call plug#begin('~/.vim/bundle')
+
+" Color Schemes
+Plug 'joshdick/onedark.vim'
+Plug 'ayu-theme/ayu-vim'
+Plug 'mhartington/oceanic-next'
+Plug 'ysdexlic/dwarf.vim'
+
+" Visual
+Plug 'mhinz/vim-startify'
+Plug 'ryanoasis/vim-devicons'
+Plug 'itchyny/lightline.vim'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'airblade/vim-gitgutter'
+
+" Vim Utility
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-surround'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'preservim/nerdtree'
+Plug 'voldikss/vim-floaterm'
+Plug 'vimwiki/vimwiki'
+
+" Syntax / Formatting
+Plug 'sheerun/vim-polyglot'
+Plug 'alvan/vim-closetag'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'tweekmonster/gofmt.vim'
+
+" Other
+Plug 'pbrisbin/vim-mkdir'
+Plug 'airblade/vim-rooter'
+Plug 'tmux-plugins/vim-tmux-focus-events'
+
+if filereadable(expand("~/.vimrc.bundles.local"))
+  source ~/.vimrc.bundles.local
+endif
+
+call plug#end()

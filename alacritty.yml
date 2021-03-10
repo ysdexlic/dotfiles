@@ -1,0 +1,102 @@
+# original yml to be found at https://github.com/alacritty/alacritty/releases
+
+window:
+  padding:
+    x: 5
+    y: 5
+  dynamic_padding: true
+  decorations: full
+  startup_mode: Maximized
+  dynamic_title: true
+
+font:
+  normal:
+    family: FiraCode Nerd Font Mono
+    style: Retina
+
+  bold:
+    family: FiraCode Nerd Font Mono
+    style: Bold
+
+  italic:
+    family: Hack Nerd Font Mono
+    style: Italic
+
+  bold_italic:
+    family: Hack Nerd Font Mono
+    style: Bold Italic
+
+  size: 14.0
+
+colors:
+  primary:
+    # background: "#282c34" # Onedark
+    background: "#282c34" # Forge
+    # background: "#141f21" # Steel
+    # background: "#2b2834" # Iron
+    # background: "#0c0e1c" # Obsydian
+
+    # foreground: "#abb1bf" # Onedark
+    foreground: "#abb8be" # Forge
+    # foreground: "#aabeb1" # Steel
+    # foreground: "#beb2bf" # Iron
+    # foreground: "#aabeb1" # Obsydian
+
+  # ONE DARK
+  normal:
+    black: '#000000'
+    red: '#e06c75'
+    green: '#98c379'
+    yellow: '#e5c07b'
+    blue: '#61afef'
+    magenta: '#c678dd'
+    cyan: '#56b6c2'
+    white: '#abb2bf'
+
+  bright:
+    black: '#4b5263'
+    red: '#be5046'
+    green: '#98c379'
+    yellow: '#d19a66'
+    blue: '#61afef'
+    magenta: '#c678dd'
+    cyan: '#56b6c2'
+    white: '#3e4452'
+
+cursor:
+  style: Beam
+  vi_mode_style: Block
+  unfocused_hollow: true
+
+# background_opacity: 0.95
+
+alt_send_esc: false
+
+mouse:
+  url:
+    modifiers: Shift
+
+key_bindings:
+  - { key: K, mods: Command, mode: ~Vi, chars: "\x0c" }
+  - { key: Slash, mods: Control, mode: ~Vi, chars: "\x1f" }
+  - { key: Key0, mods: Command, action: ResetFontSize }
+  - { key: Equals, mods: Command, action: IncreaseFontSize }
+  - { key: Add, mods: Command, action: IncreaseFontSize }
+  - { key: Minus, mods: Command, action: DecreaseFontSize }
+  - { key: K, mods: Command, action: ClearHistory }
+  - { key: V, mods: Command, action: Paste }
+  - { key: C, mods: Command, action: Copy }
+  - { key: C, mods: Command, mode: Vi, action: ClearSelection }
+  - { key: H, mods: Command, action: Hide }
+  - { key: M, mods: Command, action: Minimize }
+  - { key: Q, mods: Command, action: Quit }
+  - { key: W, mods: Command, action: Quit }
+  - { key: N, mods: Command, action: SpawnNewInstance }
+  - { key: F, mods: Command|Control, action: ToggleFullscreen }
+  - { key: F, mods: Command, action: SearchForward }
+  - { key: B, mods: Command, action: SearchBackward }
+  - { key: Left, mods: Alt, chars: "\x1bb" }
+  - { key: Right, mods: Alt, chars: "\x1bf" }
+  - { key: Left, mods: Command, chars: "\x1bOH", mode: AppCursor } # Home
+  - { key: Right, mods: Command, chars: "\x1bOF", mode: AppCursor } # End
+  - { key: Back, mods: Command, chars: "\x15" }
