@@ -61,6 +61,7 @@ augroup vimrcEx
 
   autocmd BufRead,BufNewFile dotrc set filetype=toml
   autocmd BufRead,BufNewFile *.md set filetype=markdown
+  autocmd BufRead,BufNewFile *.ron set filetype=rust
   autocmd BufRead,BufNewFile .{jscs,jshint,eslint,prettier,babel}rc set filetype=json
   autocmd BufRead,BufNewFile *.tsx set filetype=typescriptreact
   autocmd BufRead,BufNewFile aliases.local,zshrc.local,*/zsh/configs/*,.env*.local set filetype=sh
@@ -176,12 +177,6 @@ nnoremap <S-Left> gT
 " Switch between the last two files
 nnoremap <Leader><Leader> <C-^>
 
-" Get off my lawn
-nnoremap <silent> <Left> :echoe "Use h"<CR>
-nnoremap <silent> <Right> :echoe "Use l"<CR>
-nnoremap <silent> <Up> :echoe "Use k"<CR>
-nnoremap <silent> <Down> :echoe "Use j"<CR>
-
 " Search and replace
 nnoremap <Leader>sr :%s/\<<C-r><C-w>\>/<C-r><C-w>/gIc<Left><Left><Left><Left>
 
@@ -190,6 +185,10 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
+
+" Coc next and previous
+inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
+inoremap <expr> <C-k> pumvisible() ? "\<C-n>" : "\<C-k>"
 
 " Window splits
 nnoremap <leader>\ :vsp<CR>

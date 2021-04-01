@@ -8,6 +8,6 @@ if executable('ag')
 endif
 
 " FZF
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.9 } }
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.75, 'yoffset': 0.5 } }
 let g:fzf_colors = { 'border': ['fg', 'Comment'] }
 let $FZF_DEFAULT_OPTS='--reverse --preview "bat --style=numbers,changes --color=always {}"'

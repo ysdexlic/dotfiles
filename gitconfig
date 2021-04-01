@@ -26,6 +26,7 @@
   ff = only
 [commit]
   template = ~/.gitmessage
+  gpgsign = true
 [pull]
   rebase = false
 [fetch]
@@ -39,3 +40,4 @@
 [user]
   name = David Thompson
   email = david.arthur.thompson@gmail.com
+  signingkey = C357E12E9BF9CDA4
