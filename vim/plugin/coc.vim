@@ -10,6 +10,7 @@ let g:coc_global_extensions = [
   \ 'coc-pairs',
   \ 'coc-snippets',
   \ 'coc-prettier',
+  \ 'coc-eslint',
   \ ]
 
 " if hidden is not set, TextEdit might fail.

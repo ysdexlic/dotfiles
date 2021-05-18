@@ -60,7 +60,6 @@ augroup vimrcEx
     \ endif
 
   autocmd BufRead,BufNewFile dotrc set filetype=toml
-  autocmd BufRead,BufNewFile *.md set filetype=markdown
   autocmd BufRead,BufNewFile *.ron set filetype=rust
   autocmd BufRead,BufNewFile .{jscs,jshint,eslint,prettier,babel}rc set filetype=json
   autocmd BufRead,BufNewFile *.tsx set filetype=typescriptreact
