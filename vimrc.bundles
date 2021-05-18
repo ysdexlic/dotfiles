@@ -20,8 +20,9 @@ Plug 'ysdexlic/dwarf.vim'
 
 " Visual
 Plug 'mhinz/vim-startify'
-Plug 'ryanoasis/vim-devicons'
+Plug 'kyazdani42/nvim-web-devicons'
 Plug 'itchyny/lightline.vim'
+Plug 'kyazdani42/nvim-tree.lua'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'airblade/vim-gitgutter'
 
@@ -48,6 +49,11 @@ Plug 'tweekmonster/gofmt.vim'
 Plug 'pbrisbin/vim-mkdir'
 Plug 'airblade/vim-rooter'
 Plug 'tmux-plugins/vim-tmux-focus-events'
+
+" Telescope
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local

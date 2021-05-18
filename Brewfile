@@ -13,7 +13,7 @@ brew "neofetch"
 brew "neovim"
 brew "node"
 brew "starship"
-brew "the_silver_searcher"
+brew "rg"
 brew "tmux"
 brew "ysdexlic/formulae/dot"
 

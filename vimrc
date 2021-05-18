@@ -78,6 +78,34 @@ let g:is_posix = 1
 " 1 = on
 let g:plugin_develop_mode = 0
 
+lua << EOF
+require'nvim-web-devicons'.setup {
+  override = {
+    ["default_icon"] = {
+      icon = "",
+      color = "#6d8086",
+      name = "Default2",
+    }
+  },
+  default = true;
+}
+EOF
+
+lua << EOF
+local actions = require('telescope.actions')
+require('telescope').setup {
+  defaults = {
+    mappings = {
+      i = {
+        ["<esc>"] = actions.close,
+        ["<c-k>"] = actions.move_selection_previous,
+        ["<c-j>"] = actions.move_selection_next,
+      },
+    },
+  }
+}
+EOF
+
 " Softtabs, 2 spaces
 set tabstop=2
 set shiftwidth=0
@@ -124,28 +152,26 @@ set complete+=kspell
 map <ScrollWheelUp> <C-Y>
 map <ScrollWheelDown> <C-E>
 
-" Map Ctrl + p to open fuzzy find (FZF)
-nnoremap <silent> <C-p> :FZF<cr>
-
-command! -bang Dotfiles call fzf#vim#files('~/dotfiles', <bang>0)
+" Map Ctrl + p to open fuzzy find (Telescope)
+nnoremap <silent> <C-p> :Telescope find_files<cr>
+" Map Ctrl + f to open search (Telescope)
+nnoremap <silent> <C-f> :lua require'telescope.builtin'.live_grep{only_sort_text = true}<CR>
 
 " Find in working directory (without searching filenames)
 " Added ' to search for exact match
 command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), <bang>0)
-nnoremap <silent> <C-f> :Ag<CR>'
 
 " Replace without updating register
 vnoremap <leader>p "_dp
 vnoremap <leader>P "_dP
 
 " Dotfiles mappings
+command! -bang Dotfiles call fzf#vim#files('~/dotfiles', <bang>0)
 nnoremap <silent> <leader>se :Dotfiles<cr>
 nnoremap <silent> <leader>ss :tabe ~/dotfiles/vimrc<CR>
-nnoremap <silent> <leader>so :so ~/dotfiles/vimrc<CR>
-" nnoremap <silent> <leader>so :so %<cr>
 
 " Remove highlight & clear status bar
-nnoremap <silent> <ESC><ESC> :nohl <bar> :echo <CR>
+nnoremap <silent> <ESC> :nohl <bar> :echo <CR>
 
 " Alt/Option backspace
 inoremap <A-BS> <C-W>
@@ -221,9 +247,11 @@ tnoremap <silent> <C-y> <C-\><C-n>:FloatermNew<CR>
 tnoremap <silent> <C-w> <C-\><C-n>:FloatermPrev<CR>
 tnoremap <silent> <C-e> <C-\><C-n>:FloatermNext<CR>
 
-" NERDTree
-nmap <silent> <Leader>n <Plug>SmartNERDTree
-map <silent> <C-n> <Plug>SmartNERDTree
+"NvimTree
+nmap <silent> <Leader>n <Plug>SmartNvimTree
+map <silent> <C-n> <Plug>SmartNvimTree
+" nnoremap <leader>r :NvimTreeRefresh<CR>
+
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")
