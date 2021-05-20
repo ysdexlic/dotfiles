@@ -16,6 +16,9 @@ set nomodeline      " Disable modelines as a security precaution
 set modelines=0
 set mouse=nvi       " Allows mouse integration
 
+" always show signcolumns
+set signcolumn=yes
+
 set wildignore+=*.pyc,*.o,*.obj,*.svn,*.swp,*.class,*.hg,*.DS_Store,*.min.*
 
 " Switch syntax highlighting on, when the terminal has colors
@@ -46,7 +49,7 @@ color onedark
 
 " Custom search highlight color
 highlight Search cterm=NONE ctermbg=237 ctermfg=NONE guibg=#3E4452 guifg=NONE
-
+highlight EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
 
 augroup vimrcEx
   autocmd!
@@ -145,6 +148,9 @@ set spellfile=$HOME/.vim-spell-en.utf-8.add
 " Autocomplete with dictionary words when spell check is on
 set complete+=kspell
 
+" Allow leaving changes in buffers
+set hidden
+
 "+---------------------------------+',
 "|             keymaps             |',
 "+---------------------------------+',
@@ -205,10 +211,6 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
-
-" Coc next and previous
-inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
-inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 
 " Window splits
 nnoremap <leader>\ :vsp<CR>
