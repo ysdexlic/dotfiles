@@ -23,7 +23,6 @@ endfun
 
 map <Plug>SmartNvimTree :<C-U>call <SID>SmartNvimTree()<CR>
 
-
 lua << EOF
     local tree_cb = require'nvim-tree.config'.nvim_tree_callback
     vim.g.nvim_tree_bindings = {
@@ -35,6 +34,15 @@ lua << EOF
       -- ["p"] = ":call RenameWithExt()<CR>",
     }
 EOF
+
+highlight NvimTreeGitDirty guifg=#E5C07B
+highlight NvimTreeGitNew guifg=#98C379
+let g:nvim_tree_icons = {
+    \ 'git': {
+    \   'unstaged': "๏",
+    \   'staged': "๏",
+    \   },
+    \ }
 
 " function RenameWithExt()
 "   let l:node = luaeval("require'nvim-tree.lib'.get_node_at_cursor().name")

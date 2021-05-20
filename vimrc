@@ -14,7 +14,7 @@ set colorcolumn=+1
 set showcmd         " display incomplete commands
 set nomodeline      " Disable modelines as a security precaution
 set modelines=0
-set mouse=nv        " Allows mouse integration
+set mouse=nvi       " Allows mouse integration
 
 set wildignore+=*.pyc,*.o,*.obj,*.svn,*.swp,*.class,*.hg,*.DS_Store,*.min.*
 
@@ -155,19 +155,14 @@ map <ScrollWheelDown> <C-E>
 " Map Ctrl + p to open fuzzy find (Telescope)
 nnoremap <silent> <C-p> :Telescope find_files<cr>
 " Map Ctrl + f to open search (Telescope)
-nnoremap <silent> <C-f> :lua require'telescope.builtin'.live_grep{only_sort_text = true}<CR>
-
-" Find in working directory (without searching filenames)
-" Added ' to search for exact match
-command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), <bang>0)
+nnoremap <silent> <C-f> :Telescope live_grep<CR>
 
 " Replace without updating register
 vnoremap <leader>p "_dp
 vnoremap <leader>P "_dP
 
 " Dotfiles mappings
-command! -bang Dotfiles call fzf#vim#files('~/dotfiles', <bang>0)
-nnoremap <silent> <leader>se :Dotfiles<cr>
+nnoremap <silent> <leader>se :Telescope find_files cwd=~/dotfiles<cr>
 nnoremap <silent> <leader>ss :tabe ~/dotfiles/vimrc<CR>
 
 " Remove highlight & clear status bar
@@ -213,7 +208,7 @@ nnoremap <C-l> <C-w>l
 
 " Coc next and previous
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
-inoremap <expr> <C-k> pumvisible() ? "\<C-n>" : "\<C-k>"
+inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 
 " Window splits
 nnoremap <leader>\ :vsp<CR>

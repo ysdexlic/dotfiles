@@ -17,6 +17,9 @@ let g:lightline = {
       \ 'colorscheme': 'onedark',
       \ }
 
+let g:lightline.tabline_separator = { 'left': ' ', 'right': ' ' }
+let g:lightline.tabline_subseparator = { 'left': '|', 'right': '|' }
+
 function! LightlineWebDevIcons(n)
   let l:bufnr = tabpagebuflist(a:n)[tabpagewinnr(a:n) - 1]
   let l:bufname = bufname(l:bufnr)
