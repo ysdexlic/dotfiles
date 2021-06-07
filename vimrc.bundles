@@ -26,12 +26,13 @@ Plug 'kyazdani42/nvim-tree.lua'
 Plug 'airblade/vim-gitgutter'
 
 " Vim Utility
-Plug 'neovim/nvim-lspconfig'
-Plug 'kabouzeid/nvim-lspinstall'
-Plug 'nvim-lua/completion-nvim'
-Plug 'hrsh7th/vim-vsnip'
-Plug 'hrsh7th/vim-vsnip-integ'
-Plug 'jiangmiao/auto-pairs'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neovim/nvim-lspconfig'
+" Plug 'kabouzeid/nvim-lspinstall'
+" Plug 'nvim-lua/completion-nvim'
+" Plug 'hrsh7th/vim-vsnip'
+" Plug 'hrsh7th/vim-vsnip-integ'
+" Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
@@ -45,7 +46,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'alvan/vim-closetag'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tweekmonster/gofmt.vim'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+" Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 " Telescope
 Plug 'nvim-lua/popup.nvim'
