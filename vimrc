@@ -164,8 +164,9 @@ nnoremap <silent> <C-p> :Telescope find_files<cr>
 nnoremap <silent> <C-f> :Telescope live_grep<CR>
 
 " Replace without updating register
-vnoremap <leader>p "_dp
-vnoremap <leader>P "_dP
+vnoremap <leader>p "_dP
+nnoremap <leader>d "_d
+vnoremap <leader>d "_d
 
 " Dotfiles mappings
 nnoremap <silent> <leader>se :Telescope find_files cwd=~/dotfiles<cr>
@@ -202,6 +203,10 @@ nnoremap <S-Left> gT
 
 " Switch between the last two files
 nnoremap <Leader><Leader> <C-^>
+
+" Keep visual mode on while tabbing
+vnoremap < <gv
+vnoremap > >gv
 
 " Search and replace
 nnoremap <Leader>sr :%s/\<<C-r><C-w>\>/<C-r><C-w>/gIc<Left><Left><Left><Left>
