@@ -208,6 +208,23 @@ nnoremap <Leader><Leader> <C-^>
 vnoremap < <gv
 vnoremap > >gv
 
+" Yank to end of line
+nnoremap Y y$
+
+" Center after searching
+nnoremap n nzz
+nnoremap N Nzz
+
+" Undo breakpoints
+inoremap , ,<C-g>u
+inoremap . .<C-g>u
+inoremap ! !<C-g>u
+inoremap ? ?<C-g>u
+
+" Moving text
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
 " Search and replace
 nnoremap <Leader>sr :%s/\<<C-r><C-w>\>/<C-r><C-w>/gIc<Left><Left><Left><Left>
 

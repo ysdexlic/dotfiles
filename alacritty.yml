@@ -1,5 +1,3 @@
-# original yml to be found at https://github.com/alacritty/alacritty/releases
-
 window:
   padding:
     x: 5
@@ -97,6 +95,6 @@ key_bindings:
   - { key: B, mods: Command, action: SearchBackward }
   - { key: Left, mods: Alt, chars: "\x1bb" }
   - { key: Right, mods: Alt, chars: "\x1bf" }
-  - { key: Left, mods: Command, chars: "\x1bOH", mode: AppCursor } # Home
-  - { key: Right, mods: Command, chars: "\x1bOF", mode: AppCursor } # End
+  - { key: Left, mods: Command, chars: "\x1bOH", mode: AppCursor }
+  - { key: Right, mods: Command, chars: "\x1bOF", mode: AppCursor }
   - { key: Back, mods: Command, chars: "\x15" }

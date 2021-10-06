@@ -35,11 +35,12 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
+Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
-Plug 'voldikss/vim-floaterm'
-Plug 'vimwiki/vimwiki'
+" Plug 'voldikss/vim-floaterm'
+" Plug 'vimwiki/vimwiki'
 
 " Syntax / Formatting
 Plug 'sheerun/vim-polyglot'

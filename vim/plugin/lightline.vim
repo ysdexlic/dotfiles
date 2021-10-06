@@ -1,4 +1,3 @@
-" Lightline config
 set noshowmode
 let g:lightline = {
       \ 'active': {
@@ -14,7 +13,7 @@ let g:lightline = {
       \ 'tab_component_function': {
       \   'tabnum': 'LightlineWebDevIcons',
       \ },
-      \ 'colorscheme': 'onedark',
+      \ 'colorscheme': g:colors_name,
       \ }
 
 let g:lightline.tabline_separator = { 'left': ' ', 'right': ' ' }
@@ -42,4 +41,16 @@ function! LightlineWebDevIcons(n)
   endif
   let l:x = luaeval("require'nvim-web-devicons'.get_icon('" . l:bufname . "', '')")
   return l:x
+endfunction
+
+augroup lightline-events
+  autocmd!
+  autocmd ColorScheme * call s:onColorSchemeChange(expand("<amatch>"))
+augroup END
+
+function! s:onColorSchemeChange(scheme)
+  let g:lightline.colorscheme = a:scheme
+  call lightline#init()
+  call lightline#colorscheme()
+  call lightline#update()
 endfunction
