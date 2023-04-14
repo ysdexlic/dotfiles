@@ -26,7 +26,6 @@
   ff = only
 [commit]
   template = ~/.gitmessage
-  gpgsign = true
 [pull]
   rebase = false
 [fetch]

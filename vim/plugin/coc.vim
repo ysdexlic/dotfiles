@@ -8,6 +8,7 @@ let g:coc_global_extensions = [
   \ 'coc-cssmodules',
   \ 'coc-tailwindcss',
   \ 'coc-pairs',
+  \ 'coc-snippets',
   \ 'coc-prettier',
   \ 'coc-eslint',
   \ ]
@@ -46,7 +47,6 @@ inoremap <expr><C-k> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
 " Use enter to autocomplete
 inoremap <expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<CR>"
-
 
 let g:coc_snippet_next = '<tab>'
 

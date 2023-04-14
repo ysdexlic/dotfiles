@@ -44,28 +44,35 @@ lua << EOF
       diagnostics = {
         enable = true,
       },
-      view = {
-        mappings = {
-          list = {
-            key = "x", cb = tree_cb("close_node"),
-            key = "<S-c>", cb = tree_cb("cd"),
-            key = "u", cb= tree_cb("dir_up"),
-            key = "[g", cb = tree_cb("prev_git_item"),
-            key = "]g", cb = tree_cb("next_git_item"),
+      renderer = {
+        icons = {
+          glyphs = {
+            git = {
+              unstaged = "๏",
+              staged = "๏"
+            },
           },
         },
       },
+      on_attach = function(bufnr)
+        local bufmap = function(lhs, rhs, desc)
+          vim.keymap.set('n', lhs, rhs, {buffer = bufnr, desc = desc})
+        end
+
+        -- See :help nvim-tree.api
+        local api = require('nvim-tree.api')
+
+        bufmap('x', api.node.navigate.parent_close, 'Close parent folder')
+        bufmap('<S-c>', api.tree.change_root_to_node, 'Change to root node')
+        bufmap('u', api.tree.change_root_to_parent, 'Navigate to parent folder')
+        bufmap('[g', api.node.navigate.git.prev, 'Navigate to previous git item')
+        bufmap(']g', api.node.navigate.git.next, 'Navigate to next git item')
+      end
     }
 EOF
 
 highlight NvimTreeGitDirty guifg=#E5C07B
 highlight NvimTreeGitNew guifg=#98C379
-let g:nvim_tree_icons = {
-    \ 'git': {
-    \   'unstaged': "๏",
-    \   'staged': "๏",
-    \   },
-    \ }
 
 " function RenameWithExt()
 "   let l:node = luaeval("require'nvim-tree.lib'.get_node_at_cursor().name")
