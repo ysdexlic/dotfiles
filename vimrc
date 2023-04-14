@@ -1,5 +1,7 @@
 set encoding=utf-8
 
+let g:python3_host_prog = "/usr/local/bin/python3"
+
 " Leader
 let mapleader = " "
 
@@ -258,13 +260,6 @@ endfunction
 nnoremap <silent> <C-_> :Commentary<CR>
 vnoremap <silent> <C-_> :Commentary<CR>
 inoremap <silent> <C-_> <C-o>:call CommentInsert()<CR>
-
-" Floaterm
-nnoremap <silent> <C-a> :FloatermToggle<CR>
-tnoremap <silent> <C-a> <C-\><C-n>:FloatermToggle<CR>
-tnoremap <silent> <C-y> <C-\><C-n>:FloatermNew<CR>
-tnoremap <silent> <C-w> <C-\><C-n>:FloatermPrev<CR>
-tnoremap <silent> <C-e> <C-\><C-n>:FloatermNext<CR>
 
 "NvimTree
 nmap <silent> <Leader>n <Plug>SmartNvimTree

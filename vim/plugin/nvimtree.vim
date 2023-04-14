@@ -1,15 +1,9 @@
-let g:nvim_tree_auto_open = 1 "0 by default, opens the tree when typing `vim $DIR` or `vim`
-let g:nvim_tree_auto_close = 1 "0 by default, closes the tree when it's the last window
 let g:nvim_tree_auto_ignore_ft = [ 'startify', 'dashboard' ] "empty by default, don't auto open tree on specific filetypes.
-let g:nvim_tree_quit_on_open = 1 "0 by default, closes the tree when you open a file
-let g:nvim_tree_follow = 1 "0 by default, this option allows the cursor to be updated when entering a buffer
-let g:nvim_tree_indent_markers = 1 "0 by default, this option shows indent markers when folders are open
-let g:nvim_tree_git_hl = 1 "0 by default, will enable file highlight for git attributes (can be used without the icons).
+" let g:nvim_tree_indent_markers = 1 "0 by default, this option shows indent markers when folders are open
+" let g:nvim_tree_git_hl = 1 "0 by default, will enable file highlight for git attributes (can be used without the icons).
 let g:nvim_tree_width_allow_resize = 1 "0 by default, will not resize the tree when opening a file
-let g:nvim_tree_disable_netrw = 0 "1 by default, disables netrw
-let g:nvim_tree_add_trailing = 1 "0 by default, append a trailing slash to folder names
-let g:nvim_tree_lsp_diagnostics = 1 "0 by default, will show lsp diagnostics in the signcolumn. See :help nvim_tree_lsp_diagnostics
-let g:nvim_tree_special_files = [] " List of filenames that gets highlighted with NvimTreeSpecialFile
+" let g:nvim_tree_add_trailing = 1 "0 by default, append a trailing slash to folder names
+" let g:nvim_tree_special_files = [] " List of filenames that gets highlighted with NvimTreeSpecialFile
 
 autocmd BufEnter NvimTree set cursorline
 
@@ -25,24 +19,60 @@ map <Plug>SmartNvimTree :<C-U>call <SID>SmartNvimTree()<CR>
 
 lua << EOF
     local tree_cb = require'nvim-tree.config'.nvim_tree_callback
-    vim.g.nvim_tree_bindings = {
-      ["x"] = tree_cb("close_node"),
-      ["<S-c>"] = tree_cb("cd"),
-      ["u"] = tree_cb("dir_up"),
-      ["[g"] = tree_cb("prev_git_item"),
-      ["]g"] = tree_cb("next_git_item"),
-      -- ["p"] = ":call RenameWithExt()<CR>",
+    require'nvim-tree'.setup {
+      disable_netrw       = false,
+      hijack_netrw        = true,
+      open_on_setup       = true,
+      ignore_ft_on_setup  = {},
+      hijack_directories   = {
+        enable = true,
+        auto_open = true,
+      },
+      actions = {
+        open_file = {
+          quit_on_open = true,
+        }
+      },
+      open_on_tab         = false,
+      hijack_cursor       = false,
+      update_cwd          = false,
+      update_focused_file = {
+        enable      = true,
+        update_cwd  = false,
+        ignore_list = {}
+      },
+      diagnostics = {
+        enable = true,
+      },
+      renderer = {
+        icons = {
+          glyphs = {
+            git = {
+              unstaged = "๏",
+              staged = "๏"
+            },
+          },
+        },
+      },
+      on_attach = function(bufnr)
+        local bufmap = function(lhs, rhs, desc)
+          vim.keymap.set('n', lhs, rhs, {buffer = bufnr, desc = desc})
+        end
+
+        -- See :help nvim-tree.api
+        local api = require('nvim-tree.api')
+
+        bufmap('x', api.node.navigate.parent_close, 'Close parent folder')
+        bufmap('<S-c>', api.tree.change_root_to_node, 'Change to root node')
+        bufmap('u', api.tree.change_root_to_parent, 'Navigate to parent folder')
+        bufmap('[g', api.node.navigate.git.prev, 'Navigate to previous git item')
+        bufmap(']g', api.node.navigate.git.next, 'Navigate to next git item')
+      end
     }
 EOF
 
 highlight NvimTreeGitDirty guifg=#E5C07B
 highlight NvimTreeGitNew guifg=#98C379
-let g:nvim_tree_icons = {
-    \ 'git': {
-    \   'unstaged': "๏",
-    \   'staged': "๏",
-    \   },
-    \ }
 
 " function RenameWithExt()
 "   let l:node = luaeval("require'nvim-tree.lib'.get_node_at_cursor().name")

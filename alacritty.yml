@@ -66,13 +66,19 @@ cursor:
   vi_mode_style: Block
   unfocused_hollow: true
 
-# background_opacity: 0.95
-
 alt_send_esc: false
 
-mouse:
-  url:
-    modifiers: Shift
+hints:
+  enabled:
+    - regex: "(magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
+      command: open
+      post_processing: true
+      mouse:
+        enabled: true
+        mods: Command
+        binding:
+          key: U
+          mods: Control|Shift
 
 key_bindings:
   - { key: K, mods: Command, mode: ~Vi, chars: "\x0c" }
