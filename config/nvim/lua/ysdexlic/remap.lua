@@ -71,5 +71,7 @@ vim.keymap.set('v', '<leader>p', '"_dP')
 vim.keymap.set({'n', 'v'}, '<leader>d', '"_d')
 
 -- Telescope
-vim.keymap.set('n', '<C-p>', ':Telescope find_files<cr>', { silent = true })
+vim.keymap.set('n', '<C-p>', ':Telescope find_files<CR>', { silent = true })
 vim.keymap.set('n', '<C-f>', ':Telescope live_grep<CR>', { silent = true })
+vim.keymap.set('n', '<leader>ss', ':Telescope find_files cwd=~/dotfiles<CR>', { silent = true })
+

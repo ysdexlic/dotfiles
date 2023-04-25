@@ -6,4 +6,3 @@ vim.g.closetag_regions = {
   ['typescript.tsx'] = 'jsxRegion,tsxRegion',
   ['javascript.jsx'] = 'jsxRegion',
 }
-

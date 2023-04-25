@@ -17,6 +17,12 @@ require("bufferline").setup{
     fill = {
       fg = "None",
       bg = "None"
-    }
+    },
+    -- buffer_selected = {
+    --   bg = {
+    --     attribute = 'bg',
+    --     highlight = 'CursorLine',
+    --   }
+    -- }
   }
 }

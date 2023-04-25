@@ -14,7 +14,11 @@ vim.api.nvim_create_autocmd({ 'BufEnter' }, {
   command = 'set cursorline',
 })
 
+vim.cmd('hi link NvimTreeCursorLine Visual')
+
 require("nvim-tree").setup({
+  sync_root_with_cwd = true,
+  respect_buf_cwd = true,
   actions = {
     open_file = {
       quit_on_open = true,

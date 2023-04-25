@@ -1,6 +1,7 @@
 require('lualine').setup {
   options = {
-    theme = 'onedark'
+    theme = 'onedark',
+    disabled_filetypes = { 'packer', 'NvimTree' },
   },
   sections = {
     lualine_a = {'mode'},

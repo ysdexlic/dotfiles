@@ -38,6 +38,10 @@ vim.opt.writebackup = false
 vim.opt.modeline = false
 vim.opt.modelines = 0
 
+vim.opt.tags:prepend('.git/tags')
+vim.opt.diffopt:append('vertical')
+vim.opt.complete:append('kspell')
+
 local filetypes = vim.api.nvim_create_augroup('vimrcEx', { clear = true })
 vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
   pattern = 'dotrc',

@@ -9,11 +9,11 @@ let g:python3_host_prog = "/usr/local/bin/python3"
 "  set nobackup
 "  set nowritebackup
 "  set noswapfile
-set history=50      " number of cmd line history to remember
-set ruler           " show the cursor position all the time
+" set history=50      " number of cmd line history to remember
+" set ruler           " show the cursor position all the time
 "  set textwidth=80
 "  set colorcolumn=+1
-set showcmd         " display incomplete commands
+" set showcmd         " display incomplete commands
 "  set nomodeline      " Disable modelines as a security precaution
 "  set modelines=0
 "  set mouse=nvi       " Allows mouse integration
@@ -161,9 +161,9 @@ map <ScrollWheelUp> <C-Y>
 map <ScrollWheelDown> <C-E>
 
 " Map Ctrl + p to open fuzzy find (Telescope)
-nnoremap <silent> <C-p> :Telescope find_files<cr>
+" nnoremap <silent> <C-p> :Telescope find_files<cr>
 " Map Ctrl + f to open search (Telescope)
-nnoremap <silent> <C-f> :Telescope live_grep<CR>
+" nnoremap <silent> <C-f> :Telescope live_grep<CR>
 
 " Replace without updating register
 "  vnoremap <leader>p "_dP
@@ -171,8 +171,8 @@ nnoremap <silent> <C-f> :Telescope live_grep<CR>
 "  vnoremap <leader>d "_d
 
 " Dotfiles mappings
-nnoremap <silent> <leader>se :Telescope find_files cwd=~/dotfiles<cr>
-nnoremap <silent> <leader>ss :tabe ~/dotfiles/vimrc<CR>
+" nnoremap <silent> <leader>se :Telescope find_files cwd=~/dotfiles<cr>
+" nnoremap <silent> <leader>ss :tabe ~/dotfiles/vimrc<CR>
 
 " Remove highlight & clear status bar
 "  nnoremap <silent> <ESC> :nohl <bar> :echo <CR>

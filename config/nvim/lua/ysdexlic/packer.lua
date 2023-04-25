@@ -19,6 +19,31 @@ return require('packer').startup(function(use)
   }
   use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
 
+  -- LSP
+  use {
+    'VonHeikemen/lsp-zero.nvim',
+    branch = 'v1.x',
+    requires = {
+      -- LSP Support
+      {'neovim/nvim-lspconfig'},
+      -- {'williamboman/mason.nvim'},
+      {'williamboman/mason.nvim', run = ':MasonUpdate'},
+      {'williamboman/mason-lspconfig.nvim'},
+
+      -- Autocompletion
+      {'hrsh7th/nvim-cmp'},
+      {'hrsh7th/cmp-nvim-lsp'},
+      {'hrsh7th/cmp-buffer'},
+      {'hrsh7th/cmp-path'},
+      {'hrsh7th/cmp-nvim-lua'},
+      {'saadparwaiz1/cmp_luasnip'},
+
+      -- Snippets
+      {'L3MON4D3/LuaSnip'},
+    }
+  }
+
+
   -- Syntax
   use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
 
@@ -32,7 +57,8 @@ return require('packer').startup(function(use)
     'nvim-telescope/telescope.nvim', tag = '0.1.1',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
-  use 'alvan/vim-closetag'
+  -- TODO: fix
+  -- use 'alvan/vim-closetag'
 
   -- Other
   use 'pbrisbin/vim-mkdir'
