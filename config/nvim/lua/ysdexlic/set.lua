@@ -18,7 +18,7 @@ vim.opt.wrap = false
 
 vim.opt.showtabline = 2
 
-vim.opt.listchars = {tab = "»·", trail = "·", nbsp = "·"}
+vim.opt.listchars = { tab = "»·", trail = "·", nbsp = "·" }
 
 vim.opt.mouse = "nvi"
 
