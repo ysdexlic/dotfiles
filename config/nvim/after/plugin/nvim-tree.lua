@@ -15,6 +15,7 @@ vim.api.nvim_create_autocmd({ 'BufEnter' }, {
 })
 
 vim.cmd('hi link NvimTreeCursorLine Visual')
+vim.cmd('hi link NvimTreeIndentMarker VertSplit')
 
 require("nvim-tree").setup({
   sync_root_with_cwd = true,
@@ -26,6 +27,9 @@ require("nvim-tree").setup({
   },
   renderer = {
     highlight_git = true,
+    indent_markers = {
+      enable = true,
+    },
     icons = {
       glyphs = {
         default = "",
@@ -51,6 +55,7 @@ require("nvim-tree").setup({
     vim.keymap.set('n', '<C-v>', api.node.open.vertical, opts('Open: Vertical Split'))
     vim.keymap.set('n', '<C-x>', api.node.open.horizontal, opts('Open: Horizontal Split'))
     vim.keymap.set('n', '<BS>', api.node.navigate.parent_close, opts('Close Directory'))
+    vim.keymap.set('n', 'x', api.node.navigate.parent_close, opts('Close Directory'))
     vim.keymap.set('n', '<CR>', api.node.open.edit, opts('Open'))
     vim.keymap.set('n', '<Tab>', api.node.open.preview, opts('Open Preview'))
     vim.keymap.set('n', '>', api.node.navigate.sibling.next, opts('Next Sibling'))
