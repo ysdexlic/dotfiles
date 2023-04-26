@@ -31,16 +31,6 @@ lsp.setup_nvim_cmp({
   mapping = cmp_mappings
 })
 
--- lsp.set_preferences({
---     suggest_lsp_servers = false,
---     sign_icons = {
---         error = 'E',
---         warn = 'W',
---         hint = 'H',
---         info = 'I'
---     }
--- })
-
 lsp.on_attach(function(client, bufnr)
   local opts = {buffer = bufnr, remap = false}
 
@@ -56,11 +46,6 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 lsp.setup()
-
--- vim.api.nvim_create_autocmd({ 'CursorHold' }, {
---   pattern = '*',
---   command = 'lua vim.diagnostic.open_float({focusable = false})',
--- })
 
 vim.diagnostic.config({
     virtual_text = true,
