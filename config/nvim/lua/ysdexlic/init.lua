@@ -1,6 +1,6 @@
 require("ysdexlic.packer")
-require("ysdexlic.set")
-require("ysdexlic.remap")
+require("ysdexlic.options")
+require("ysdexlic.keymaps")
 
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   pattern = { "*" },

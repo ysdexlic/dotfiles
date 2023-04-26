@@ -6,7 +6,6 @@ alias e="$EDITOR"
 alias v="$VISUAL"
 
 # Git
-alias g='git'
 alias gi='git'
 alias gti='git'
 

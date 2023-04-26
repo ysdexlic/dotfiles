@@ -1,3 +1,6 @@
+import:
+  - ~/.config/alacritty/themes/onedark.yml
+
 window:
   padding:
     x: 5
@@ -25,41 +28,6 @@ font:
     style: Bold Italic
 
   size: 14.0
-
-colors:
-  primary:
-    # background: "#282c34" # Onedark
-    background: "#282c34" # Forge
-    # background: "#141f21" # Steel
-    # background: "#2b2834" # Iron
-    # background: "#0c0e1c" # Obsydian
-
-    # foreground: "#abb1bf" # Onedark
-    foreground: "#abb8be" # Forge
-    # foreground: "#aabeb1" # Steel
-    # foreground: "#beb2bf" # Iron
-    # foreground: "#aabeb1" # Obsydian
-
-  # ONE DARK
-  normal:
-    black: '#000000'
-    red: '#e06c75'
-    green: '#98c379'
-    yellow: '#e5c07b'
-    blue: '#61afef'
-    magenta: '#c678dd'
-    cyan: '#56b6c2'
-    white: '#abb2bf'
-
-  bright:
-    black: '#4b5263'
-    red: '#be5046'
-    green: '#98c379'
-    yellow: '#d19a66'
-    blue: '#61afef'
-    magenta: '#c678dd'
-    cyan: '#56b6c2'
-    white: '#3e4452'
 
 cursor:
   style: Beam
