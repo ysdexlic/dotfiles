@@ -12,10 +12,6 @@ require("bufferline").setup {
     mode = "tabs",
     themable = true,
     show_buffer_close_icons = false,
-    indicator = {
-      style = 'none',
-    },
-    always_show_bufferline = false,
     offsets = {
       {
         filetype = "NvimTree",
@@ -24,8 +20,10 @@ require("bufferline").setup {
   },
   highlights = {
     fill = {
-      fg = "None",
-      bg = "None"
+      bg = {
+        attribute = 'fg',
+        highlight = 'SpecialKey',
+      },
     },
     buffer_selected = {
       bg = {
