@@ -4,11 +4,11 @@ vim.g.mapleader = " "
 vim.keymap.set('n', '<ESC>', ':nohl <bar> :echo <CR>', { silent = true })
 
 -- Alt/Option backspace
-vim.keymap.set({'i', 'c'}, '<A-BS>', '<C-W>')
+vim.keymap.set({ 'i', 'c' }, '<A-BS>', '<C-W>')
 
 -- Alt/Option arrows
-vim.keymap.set({'i', 'c'}, '<M-b>', '<S-Left>')
-vim.keymap.set({'i', 'c'}, '<M-f>', '<S-Right>')
+vim.keymap.set({ 'i', 'c' }, '<M-b>', '<S-Left>')
+vim.keymap.set({ 'i', 'c' }, '<M-f>', '<S-Right>')
 
 -- Switch between tabs using numbers
 vim.keymap.set('n', '<leader>1', '1gt')
@@ -68,7 +68,7 @@ vim.keymap.set('n', '<leader>gs', ':vertical :G<CR>', { silent = true })
 
 -- Replace without updating register
 vim.keymap.set('v', '<leader>p', '"_dP')
-vim.keymap.set({'n', 'v'}, '<leader>d', '"_d')
+vim.keymap.set({ 'n', 'v' }, '<leader>d', '"_d')
 
 -- Telescope
 vim.keymap.set('n', '<C-p>', ':Telescope find_files<CR>', { silent = true })

@@ -7,18 +7,16 @@ return require('packer').startup(function(use)
 
   -- Themes
   use 'joshdick/onedark.vim'
-  -- use 'navarasu/onedark.nvim'
 
   -- Visual
   use 'mhinz/vim-startify'
   use 'nvim-tree/nvim-tree.lua'
-  use 'nvim-tree/nvim-web-devicons'
+  use { 'akinsho/bufferline.nvim', tag = '*', requires = { 'nvim-tree/nvim-web-devicons' } }
   use 'lewis6991/gitsigns.nvim'
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'nvim-tree/nvim-web-devicons', opt = true }
   }
-  use { 'akinsho/bufferline.nvim', tag = '*', requires = 'nvim-tree/nvim-web-devicons' }
   use 'lukas-reineke/indent-blankline.nvim'
 
   -- LSP
@@ -28,8 +26,10 @@ return require('packer').startup(function(use)
     requires = {
       -- LSP Support
       { 'neovim/nvim-lspconfig' },
-      -- {'williamboman/mason.nvim'},
-      { 'williamboman/mason.nvim',          run = ':MasonUpdate' },
+      {
+        'williamboman/mason.nvim',
+        run = ':MasonUpdate'
+      },
       { 'williamboman/mason-lspconfig.nvim' },
 
       -- Autocompletion
@@ -46,9 +46,13 @@ return require('packer').startup(function(use)
   }
   use 'folke/neodev.nvim'
   use 'lukas-reineke/lsp-format.nvim'
+  use 'onsails/lspkind.nvim'
 
   -- Syntax
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate'
+  }
 
   -- Utility
   use 'tpope/vim-commentary'

@@ -19,8 +19,12 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
   ["<Tab>"] = cmp.mapping.confirm({ select = true }),
 })
 
+local lspkind = require('lspkind')
 lsp.setup_nvim_cmp({
-  mapping = cmp_mappings
+  mapping = cmp_mappings,
+  formatting = {
+    format = lspkind.cmp_format()
+  }
 })
 
 lsp.on_attach(function(client, bufnr)

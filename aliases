@@ -1,8 +1,6 @@
 # Unix
 alias ll="ls -al"
-alias ln="ln -v"
 alias mkdir="mkdir -p"
-alias e="$EDITOR"
 alias v="$VISUAL"
 
 # Git
@@ -14,10 +12,18 @@ if type nvim > /dev/null 2>&1; then
   alias vim="nvim"
 fi
 
+# K8s
+alias k='kubectl'
+alias kctx='kubectx'
+alias kns='kubens'
+alias ks='kubeseal'
+
+# Tmux
 alias tmux="tmux -2"
 
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
+alias p='path'
 
 # Include custom aliases
 if [[ -f ~/.aliases.local ]]; then
